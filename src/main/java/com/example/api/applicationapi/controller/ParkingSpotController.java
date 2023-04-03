@@ -81,21 +81,11 @@ public class ParkingSpotController {
         if(!parkingSpotModelOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Estacionamento não encontrado");
         }
-        //assim
+        
         var parkingSpotModel = new ParkingSpotModel();
         BeanUtils.copyProperties(parkingSpotDto, parkingSpotModel);
         parkingSpotModel.setId(parkingSpotModelOptional.get().getId());
-        parkingSpotModel.setRegistrationDate(parkingSpotModelOptional.get().getRegistrationDate());
-        // OU ASSIM -------------------------------------------------------------------------------------
-        // var parkingSpotModel = parkingSpotModelOptional.get();
-        // parkingSpotModel.setParkingSpotNumber(parkingSpotDto.getParkingSpotNumber());
-        // parkingSpotModel.setLicensePlateCar(parkingSpotDto.getLicensePlateCar());
-        // parkingSpotModel.setModelCar(parkingSpotDto.getModelCar());
-        // parkingSpotModel.setBrandCar(parkingSpotDto.getBrandCar());
-        // parkingSpotModel.setColorCar(parkingSpotDto.getColorCar());
-        // parkingSpotModel.setResponsibleName(parkingSpotDto.getResponsibleName());
-        // parkingSpotModel.setApartment(parkingSpotDto.getApartment());
-        // parkingSpotModel.setBlock(parkingSpotDto.getBlock());
+        parkingSpotModel.setRegistrationDate(parkingSpotModelOptional.get().getRegistrationDate());     
 
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.save(null));
     }
