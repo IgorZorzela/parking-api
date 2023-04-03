@@ -24,20 +24,19 @@ public class ParkingSpotController {
     @PostMapping
     public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDTO parkingSpotDTO){
         //verifica se já está em uso pela placa
-        if(parkingSpotService.existsByLicencePlateCar(parkingSpotDTO.getLicensePlateCar())){
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflito: Vaga já possui um placa cadastrada na mesma!")
+        if(parkingSpotService.existsByLicensePlateCar(parkingSpotDTO.getLicensePlateCar())){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflito: Vaga já possui um placa cadastrada na mesma!");
         }
         //verifica se já está em uso pelo numero da vaga
-        if(parkingSpotService.existsBySpotNumber(parkingSpotDTO.getParkSpotNumber())){
+        if(parkingSpotService.existsByParkingSpotNumber(parkingSpotDTO.getParkSpotNumber())){
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflito: Número de vaga já está em uso!");
         }
         //verifica se já está em uso pelo apartamento e bloco
-        if(parkingSpotService.existisByApartmentoAndBlock(parkingSpotDTO.getApartment(), parkingSpotDTO.getBlock())){
+        if(parkingSpotService.existsByApartmentAndBlock(parkingSpotDTO.getApartment(), parkingSpotDTO.getBlock())){
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflito: vaga já está em uso pelo apartamento " +
                     parkingSpotDTO.getApartment() + " do bloco " +
                     parkingSpotDTO.getBlock());
         }
-
         var parkingSpotModel = new ParkingSpotModel();
         //converte o DTO em model
         BeanUtils.copyProperties(parkingSpotDTO, parkingSpotModel);
