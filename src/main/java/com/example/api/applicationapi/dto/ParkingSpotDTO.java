@@ -1,20 +1,22 @@
 package com.example.api.applicationapi.dto;
 
-import lombok.Data;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import lombok.Data;
+
 @Data
-public class ParkingSpotDTO {
+public class ParkingSpotDto {
+
     @NotBlank
-    private String parkSpotNumber;
+    private String parkingSpotNumber;
     @NotBlank
     @Size(max = 7)
     private String licensePlateCar;
     @NotBlank
     private String brandCar;
     @NotBlank
-    private String modelCarl;
+    private String modelCar;
     @NotBlank
     private String colorCar;
     @NotBlank
@@ -23,4 +25,5 @@ public class ParkingSpotDTO {
     private String apartment;
     @NotBlank
     private String block;
+    
 }

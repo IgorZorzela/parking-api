@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class ApplicationApiApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(ApplicationApiApplication.class, args);
 	}
 
@@ -18,5 +17,4 @@ public class ApplicationApiApplication {
 	public String index(){
 		return "Hello World";
 	}
-
 }
