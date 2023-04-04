@@ -42,8 +42,7 @@ public class ParkingSpotService {
         return parkingSpotRepository.findAll(pageable);
     }
 
-    public Optional<ParkingSpotModel> findById(UUID id) {
-        ///asdad
+    public Optional<ParkingSpotModel> findById(UUID id) {        
         return parkingSpotRepository.findById(id);
     }
 
