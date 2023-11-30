@@ -1,0 +1,1 @@
+inset into TB_PARKIN_SPOT (parking_spot_number, licensePlateCar, brandCar, modelCar, colorCar, registrationDate)
